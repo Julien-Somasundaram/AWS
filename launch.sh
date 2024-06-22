@@ -1,2 +1,2 @@
 git clone https://github.com/Julien-Somasundaram/GraphQL.git ./MyApp
-docker-compose up --build
+docker stack deploy -c /MyApp/docker-stack.yml myapp
