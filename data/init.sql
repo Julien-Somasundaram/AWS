@@ -1,0 +1,2 @@
+GRANT ALL PRIVILEGES ON final.* TO 'final'@'%';
+FLUSH PRIVILEGES;

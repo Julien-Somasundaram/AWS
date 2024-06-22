@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Backend/Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=postgresql://final:final@database:5432/final
+    networks:
+      - app-network
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: .
+      dockerfile: FrontEnd/Dockerfile
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  nginx:
+    build:
+      context: .
+      dockerfile: http/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - app-network
+
+  database:
+    build:
+      context: .
+      dockerfile: data/Dockerfile
+    environment:
+      POSTGRES_USER: final
+      POSTGRES_PASSWORD: final
+      POSTGRES_DB: final
+
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+networks:
+  app-network:
