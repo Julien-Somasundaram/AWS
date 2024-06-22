@@ -3,13 +3,13 @@ FROM node:21
 WORKDIR /app
 RUN apt-get update && apt-get install -y netcat-openbsd
 # Copier le package.json et package-lock.json (si présent)
-COPY MyApp/GraphQLFinalProject/Front-End/package*.json ./
+COPY MyApp/Front-End/package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier le reste des fichiers du projet
-COPY MyApp/GraphQLFinalProject/Front-End .
+COPY MyApp/Front-End .
 
 # Copier le script d'initialisation
 COPY FrontEnd/init.sh .

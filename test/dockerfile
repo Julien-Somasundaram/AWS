@@ -5,13 +5,13 @@ FROM node:22
 WORKDIR /app
 
 # Copier le fichier package.json et package-lock.json
-COPY ../MyApp/GraphQLFinalProject/Front-End/package*.json ./
+COPY ../MyApp/Front-End/package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier le reste des fichiers du projet
-COPY ../MyApp/GraphQLFinalProject/Front-End .
+COPY ../MyApp/Front-End .
 
 # Exposer le port 5173 pour le frontend
 EXPOSE 5173
