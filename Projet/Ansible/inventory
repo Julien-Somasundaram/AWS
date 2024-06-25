@@ -1,0 +1,5 @@
+[manager]
+100.27.208.187 ansible_ssh_private_key_file=./myKey.pem ansible_user=ubuntu
+[workers]
+34.224.97.21 ansible_ssh_private_key_file=./myKey.pem ansible_user=ubuntu
+52.90.156.159 ansible_ssh_private_key_file=./myKey.pem ansible_user=ubuntu
